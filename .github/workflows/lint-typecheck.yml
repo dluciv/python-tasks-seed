@@ -22,22 +22,22 @@ jobs:
       - name: mypy
         working-directory: ${{ matrix.task }}
         run: |
-          mypy ./ --ignore-missing-imports
+          uv run mypy ./ --ignore-missing-imports
 
       - name: pylint
         working-directory: ${{ matrix.task }}
         run: |
-          pylint ./ --fail-under=8.0 || true
+          uv run pylint ./ --fail-under=8.0
 
       - name: black
         working-directory: ${{ matrix.task }}
         run: |
-          black --check ./ --diff
+          uv run black --check ./ --diff
 
       - name: Run ruff (Fast Linter - Optional)
         working-directory: ${{ matrix.task }}
         run: |
-          ruff check ./
+          uv run ruff check ./
 
       - name: Upload linting results
         if: always()
