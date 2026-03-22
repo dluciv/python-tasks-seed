@@ -21,14 +21,12 @@ jobs:
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
-          cd ${{ matrix.task }}
-          pytest -v
+          pytest -v *_test.py
 
       - name: integration test
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
-          cd ${{ matrix.task }}
           if [ -f "integration_test.sh" ]; then
             ./integration_test.sh
           else
