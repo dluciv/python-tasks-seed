@@ -21,24 +21,28 @@ jobs:
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
+          cd ${{ matrix.task }}
           mypy ./ --ignore-missing-imports
 
       - name: pylint
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
+          cd ${{ matrix.task }}
           pylint ./ --fail-under=8.0
 
       - name: black
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
+          cd ${{ matrix.task }}
           black --check ./ --diff
 
       - name: Run ruff (Fast Linter - Optional)
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
+          cd ${{ matrix.task }}
           ruff check ./
 
       - name: Upload linting results
