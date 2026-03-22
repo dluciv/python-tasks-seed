@@ -16,8 +16,6 @@ jobs:
 
       - name: Setup uv & Python
         uses: ./.github/actions/setup-python-env
-        with:
-          working-directory: .
 
       - name: mypy
         working-directory: ${{ matrix.task }}

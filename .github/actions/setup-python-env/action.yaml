@@ -8,7 +8,8 @@ inputs:
     default: '3.13'
   working-directory:
     description: 'Working directory for the task'
-    required: true
+    default: '.'
+    required: false
 
 runs:
   using: 'composite'
@@ -38,11 +39,3 @@ runs:
         if [ -f "pyproject.toml" ] || [ -f "setup.py" ]; then
           uv pip install -e .
         fi
-
-    - name: Cache uv dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/uv
-        key: ${{ runner.os }}-uv-${{ hashFiles(format('{0}/pyproject.toml', inputs.working-directory)) }}
-        restore-keys: |
-          ${{ runner.os }}-uv-
