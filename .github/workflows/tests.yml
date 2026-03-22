@@ -21,7 +21,7 @@ jobs:
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
-          uv run pytest -v
+          pytest -v
 
       - name: integration test
         working-directory: ${{ matrix.task }}
