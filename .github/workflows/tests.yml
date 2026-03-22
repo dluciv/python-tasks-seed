@@ -1,4 +1,4 @@
-name: Lint & Type Check
+name: Unit & Integration tests
 
 on: [pull_request, push]
 
