@@ -1,0 +1,47 @@
+name: Lint & Type Check
+
+on: [pull_request, push]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [ "00.Demo" ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup uv & Python
+        uses: ./.github/actions/setup-python-env
+        with:
+          working-directory: .
+
+      - name: mypy
+        working-directory: ${{ matrix.task }}
+        run: |
+          mypy ./ --ignore-missing-imports
+
+      - name: pylint
+        working-directory: ${{ matrix.task }}
+        run: |
+          pylint ./ --fail-under=8.0 || true
+
+      - name: black
+        working-directory: ${{ matrix.task }}
+        run: |
+          black --check ./ --diff
+
+      - name: Run ruff (Fast Linter - Optional)
+        working-directory: ${{ matrix.task }}
+        run: |
+          ruff check ./
+
+      - name: Upload linting results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results-${{ matrix.task }}
+          path: ${{ matrix.task }}/**/lint-*.txt

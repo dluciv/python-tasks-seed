@@ -1,0 +1,34 @@
+name: Lint & Type Check
+
+on: [pull_request, push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [ "00.Demo" ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup uv & Python
+        uses: ./.github/actions/setup-python-env
+        with:
+          working-directory: .
+
+      - name: unit test
+        working-directory: ${{ matrix.task }}
+        run: |
+          pytest -v
+
+      - name: integration test
+        working-directory: ${{ matrix.task }}
+        run: |
+          if [ -f "integration.py" ]; then
+            python -O integration.py
+          else
+            echo "No integration test found, skipping"
+          fi
