@@ -20,11 +20,13 @@ jobs:
       - name: unit test
         working-directory: ${{ matrix.task }}
         run: |
+          . ../.venv/bin/activate
           uv run pytest -v
 
       - name: integration test
         working-directory: ${{ matrix.task }}
         run: |
+          . ../.venv/bin/activate
           if [ -f "integration_test.sh" ]; then
             ./integration_test.sh
           else
