@@ -22,13 +22,13 @@ jobs:
       - name: unit test
         working-directory: ${{ matrix.task }}
         run: |
-          pytest -v
+          uv run pytest -v
 
       - name: integration test
         working-directory: ${{ matrix.task }}
         run: |
-          if [ -f "integration.py" ]; then
-            python -O integration.py
+          if [ -f "integration_test.sh" ]; then
+            ./integration_test.sh
           else
             echo "No integration test found, skipping"
           fi
