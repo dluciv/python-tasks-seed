@@ -27,8 +27,8 @@ jobs:
         working-directory: ${{ matrix.task }}
         run: |
           . ../.venv/bin/activate
-          if [ -f "integration_test.sh" ]; then
+          if [ -x "integration_test.sh" ]; then
             ./integration_test.sh
           else
-            echo "No integration test found, skipping"
+            echo "No executable integration test found, skipping"
           fi
