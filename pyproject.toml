@@ -1,4 +1,5 @@
 [project]
+name = "Algs and Data Structures Assignments"
 requires-python = ">=3.13"
 dependencies = [
     "numpy>=1.26.0",
