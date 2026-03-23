@@ -1,5 +1,5 @@
 [project]
-name = "Algs and Data Structures Assignments"
+name = "Algs_and_Data_Structures_Assignments"
 requires-python = ">=3.13"
 dependencies = [
     "numpy>=1.26.0",
