@@ -17,7 +17,9 @@
 
 1. Разумеется, Git.
 2. Linux. С ним легче пойдёт.
-3. [uv](https://docs.astral.sh/uv/getting-started/installation/)
+3. [uv](https://docs.astral.sh/uv/getting-started/installation/), и выполнить:
+   - `$ uv venv`
+   - `$ uv pip install -e .`
 4. Visual Studio Code
    - [плагин для Python](https://open-vsx.org/extension/ms-python/python)
    - [плагин для uv](https://open-vsx.org/extension/the0807/uv-toolkit)
