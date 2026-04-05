@@ -14,4 +14,6 @@ def builtin_sort(data):
     if isinstance(data, list):
         data.sort()
     else:  # assume it is counting container
+        # TODO: скормить корректно, или оставить эту идею, и
+        # сделать less & swap
         data._array.sort()
