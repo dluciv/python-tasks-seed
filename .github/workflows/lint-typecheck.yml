@@ -11,8 +11,8 @@ jobs:
       matrix:
         task:
         - 00.Demo
-        - 01.InplaceSorting
-
+        - 01.InplaceSorting.c
+        - 01.InplaceSorting.s
     steps:
       - uses: actions/checkout@v4
 

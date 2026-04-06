@@ -11,7 +11,10 @@
 
 Шаблонное задание с модульными и интеграционными тестами.
 
-### [01.InplaceSorting](01.InplaceSorting)
+### 01.InplaceSorting
+
+- [01.InplaceSorting.c](01.InplaceSorting.c) посложнее
+- [01.InplaceSorting.s](01.InplaceSorting.s) попроще
 
 Сортировка на месте.
 
