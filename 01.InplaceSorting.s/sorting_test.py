@@ -12,7 +12,7 @@ import sortings
 @pytest.fixture(scope="module")
 def fatal_array():
     """
-    Setup function to create shuffled array
+    Create a shuffled array of 1000 elements with fixed seed
     """
     r = random.Random()
     r.seed(123456)
@@ -24,7 +24,7 @@ def fatal_array():
 
 def test_trivial_sort2():
     """
-    Тест тривиальной сортировки 2-элементного массива
+    Test trivial sorting of a 2-element array
     """
     a2: CompSwapList[int] = CompSwapList([2, 1])
     sortings.trivial_sort2(a2)
@@ -33,10 +33,10 @@ def test_trivial_sort2():
 
 def test_some_sorting(fatal_array):
     """
-    Тест некоторого алгоритма сортирвки
+    Test some sorting algorithm
     """
-    # заменить на вызов алгоритма,
-    # использующего `less` и `swap`
+    # replace with a call to a sorting algorithm
+    # that uses `less` and `swap`
     fatal_array.sort()
 
     assert all(x <= y for x, y in pairwise(fatal_array))

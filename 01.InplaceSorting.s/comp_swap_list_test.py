@@ -1,5 +1,5 @@
 """
-Unit tests for 00.Demo
+Test comp & swap list
 """
 
 from comp_swap_container import CompSwapList
@@ -7,7 +7,7 @@ from comp_swap_container import CompSwapList
 
 def test_cl_ops():
     """
-    Test standard library sorting
+    Test comp & swap list
     """
     l: CompSwapList = CompSwapList([3, 2, 1])
     assert not l.less(0, 1)

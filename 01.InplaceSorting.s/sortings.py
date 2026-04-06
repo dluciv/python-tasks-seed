@@ -1,5 +1,5 @@
 """
-Алгоритмы сортировки
+Sorting algorithms
 """
 
 from __future__ import annotations
@@ -9,7 +9,7 @@ from comp_swap_container import CompSwapList
 
 def trivial_sort2(data: CompSwapList[Any]):
     """
-    Сортирует контейнер из 2 и менее элементов
+    Sorts a container with 2 or fewer elements
 
     :param data: data to sort inplace
     :type data: MutableSequence[Ordered]
@@ -17,6 +17,6 @@ def trivial_sort2(data: CompSwapList[Any]):
     if len(data) <= 1:
         pass
     if len(data) > 2:
-        raise ValueError("Просили не больше 2!")
+        raise ValueError("Expected at most 2 elements!")
     if data.less(1, 0):
         data.swap(0, 1)

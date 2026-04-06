@@ -1,5 +1,5 @@
 """
-Counting container and value
+Container that swaps and compares
 """
 
 from __future__ import annotations
@@ -12,15 +12,15 @@ T = TypeVar("T")
 @beartype
 class CompSwapList(list[T]):
     """
-    ....
+    A list wrapper that tracks comparison and swap operations
     """
 
     @property
     def swaps(self) -> int:
         """
-        Return an approximate number of swaps assuming one swap ~ two assignments
+        Return the number of swap operations performed
 
-        :return: Estimated number of swaps (integer division)
+        :return: Number of swaps
         :rtype: int
         """
         return self._swaps
@@ -28,42 +28,42 @@ class CompSwapList(list[T]):
     @property
     def comps(self) -> int:
         """
-        Return an approximate number of swaps assuming one swap ~ two assignments
+        Return the number of comparison operations performed
 
-        :return: Estimated number of swaps (integer division)
+        :return: Number of comparisons
         :rtype: int
         """
         return self._comps
 
     def __init__(self, data: Iterable[T]):
         """
-        Initialize the container, optionally with a list
+        Initialize the container with optional initial data
 
-        :param data: Optional initial data
-        :type data: list[BasicType] or None
+        :param data: Initial data to populate the list
+        :type data: Iterable[T]
         """
         super().__init__(data)
 
         self._swaps: int
         self._comps: int
-        self.reset_stats()  # иначе MyPy ругается не по делу =)
+        self.reset_stats()  # Otherwise MyPy complains unnecessarily =)
 
     def reset_stats(self) -> None:
         """
-        Reset stats to zero
+        Reset statistics to zero
         """
         self._swaps = 0
         self._comps = 0
 
     def less(self, i: int, j: int) -> bool:
         """
-        Сравнение, оператор <
+        Compare two elements using the < operator
 
-        :param i: Индекс левого элемента
-        :type data: int
-        :param j: Индекс правого элемента
-        :type data: int
-        :return: a[i] < a[j]
+        :param i: Index of the left element
+        :type i: int
+        :param j: Index of the right element
+        :type j: int
+        :return: self[i] < self[j]
         :rtype: bool
         """
         self._comps += 1
@@ -71,12 +71,12 @@ class CompSwapList(list[T]):
 
     def swap(self, i: int, j: int) -> None:
         """
-        Поменять местами два элемента
+        Swap two elements in the list
 
-        :param i: Индекс левого элемента
-        :type data: int
-        :param j: Индекс правого элемента
-        :type data: int
+        :param i: Index of the left element
+        :type i: int
+        :param j: Index of the right element
+        :type j: int
         """
         self._swaps += 1
         self[i], self[j] = self[j], self[i]
