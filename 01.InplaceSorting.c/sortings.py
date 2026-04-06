@@ -2,10 +2,8 @@
 Sorting algorithms
 """
 
-from __future__ import annotations
-from typing import MutableSequence, Any
 
-def builtin_sort(data: MutableSequence[Any]):
+def builtin_sort(data):
     """
     Standard library sorting algorithm
 

@@ -3,7 +3,7 @@ Counting container and value
 """
 
 from __future__ import annotations
-from typing import Generic, TypeVar, Optional, MutableSequence
+from typing import Generic, TypeVar, Optional
 from beartype import beartype
 from functools import total_ordering
 
@@ -11,7 +11,7 @@ T = TypeVar("T")
 
 
 @beartype
-class CountingList(MutableSequence[T]):
+class CountingList(Generic[T]):
     """
     A wrapper around a Python list that acts like an array and counts assignments
 
