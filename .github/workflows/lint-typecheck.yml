@@ -13,6 +13,8 @@ jobs:
         - 00.Demo
         - 01.InplaceSorting.c
         - 01.InplaceSorting.s
+        - 02.Base85
+
     steps:
       - uses: actions/checkout@v4
 
