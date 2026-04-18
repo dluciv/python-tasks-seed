@@ -1,5 +1,5 @@
 """
-Unit tests for 00.Demo
+Implementation of the mean function
 """
 
 import numpy as np
